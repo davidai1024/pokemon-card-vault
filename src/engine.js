@@ -87,7 +87,7 @@ const before=pityStatus(s,id),force=id==='sv03.5'&&!starterCount?duePity(cards.m
  const due=before.tiers.slice().reverse().find(rule=>rule.due&&!cards.some(c=>c.value>=rule.minValue));
  if(due){const d=classicDistribution(id,s,true),chosen=pick(d.buckets[weightedIndex(d.weights,rng)].cards,rng);cards[10]={...instance(s,CARDS.get(chosen.cardId),chosen.finish,rng),pityGuaranteed:true,pityTier:due.limit,pityValue:due.minValue};pityTriggered=true;}
  if(!s.classicPity)s.classicPity={};const next={};for(const rule of before.tiers)next[rule.key]=cards.some(c=>c.value>=rule.minValue)?0:Math.min(rule.limit-1,rule.misses+1);s.classicPity[id]=next;
-} 
+}
 cards.forEach((c,i)=>c.origin={packId:id,slot:i+1});s.wallet-=options.gift?0:p.price;s.pending={id,cost:options.gift?0:p.price,referenceCost:p.price,isGift:!!options.gift,giftKind:options.gift?.kind,uid:'p'+Date.now()+'-'+s.seq,cards,revealed:0,opened:false,extracted:false,starterCount,pityTriggered};return s.pending;}
 function tear(s){if(!s.pending)throw Error('没有卡包');s.pending.opened=true;s.pending.extracted=false;}
 function extract(s){if(!s.pending?.opened)throw Error('先撕开封口');s.pending.extracted=true;}

@@ -47,7 +47,7 @@ function bindPause(){
  $('#pause-open')?.addEventListener('click',()=>leave('shop'));
  $('#opening').querySelectorAll('[data-opening-tab]').forEach(b=>b.onclick=e=>{e.preventDefault();leave(b.dataset.openingTab);});
  $('#opening').querySelector('[data-opening-wallet]')?.addEventListener('click',showWallet);
- 
+
 }
 function showTear(){$('#opening').classList.remove('deck-view');busy=false;const p=E.getPack(S.pending.id);$('#opening').innerHTML=`${openingHeader('密封卡包 · 把玩与拆封')}<div class="stage-title"><div class="eyebrow">${p.name}</div><h2>撕开这一刻的期待</h2><p class="tear-gesture">☞ 沿封口向右滑动  ❯❯</p></div><div class="tear-stage">${packMarkup(p,true)}<button class="pack-rotate" data-rotate-pack aria-label="转到卡包背面">${icon('arrow-right')}<span>翻转</span></button></div><div class="opening-bottom"><div class="tear-cost"><i class="coin"></i> ${S.pending.isGift?'赠送卡包 · 花费':'已花费'} <b>${fmt(S.pending.cost)}</b></div><button class="text-button" id="tear-button">跳过动画 ›</button><p>${p.count||S.pending.cards.length} 张卡片 · 卡包内容在购买时已固定</p></div>`;bindPause();$('#tear-button').onclick=finishTear;bindPackManipulation($('#opening'),true);}
 
