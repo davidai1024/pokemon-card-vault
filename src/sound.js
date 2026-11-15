@@ -3,7 +3,7 @@ window.VaultSound=(()=>{
 let ctx,master,musicTimer,decoded=false,decodePromise,settings={},musicNodes=[],plasticMode='touch',lastGrain=0,lastProgress=-1,lastHaptic=0,lastHeat=0;
 const buffers={},grains=new Set();
 let rawPromise,initialized=false,rebuildOnGesture=false,resuming=null,duckTimer,lastClock=-1,lastWall=0,epoch=0,retryAt=0;const voices=new Set();
-function audioData(){if(!rawPromise)rawPromise=fetch('assets/audio/recordings.json').then(r=>{if(!r.ok)throw Error('音效加载失败');return r.json();}).then(data=>Object.entries(data).map(([key,encoded])=>{const binary=atob(encoded),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);return [key,bytes.buffer];})).catch(e=>{rawPromise=null;throw e;});return rawPromise;}
+function audioData(){if(!rawPromise)rawPromise=Promise.resolve().then(()=>{const data=window.VAULT_AUDIO;if(!data)throw Error('音效暂不可用');return Object.entries(data).map(([key,encoded])=>{const binary=atob(encoded),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);return [key,bytes.buffer];});}).catch(e=>{rawPromise=null;throw e;});return rawPromise;}
 
 function observe(){if(document.documentElement){document.documentElement.dataset.audioState=ctx?ctx.state:'idle';document.documentElement.dataset.audioEpoch=epoch;document.documentElement.dataset.audioSamples=Object.keys(buffers).length;}}
 function silence(){endPlastic();music(false);for(const node of voices)try{node.stop();}catch(e){}voices.clear();}
@@ -30,5 +30,6 @@ function returnAudio(){wake(false);}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)leaveAudio();else returnAudio();});
 window.addEventListener('pagehide',leaveAudio);window.addEventListener('pageshow',returnAudio);window.addEventListener('blur',leaveAudio);window.addEventListener('focus',returnAudio);
 document.addEventListener('pointerdown',()=>wake(true),{capture:true,passive:true});document.addEventListener('keydown',()=>wake(true),true);
-return {init,recover,play,get status(){return ctx?ctx.state:'idle';},haptic,revealCue,music,duck,restore,beginPlastic,plasticMove,endPlastic,heat,get ready(){return Object.keys(buffers).length===3;}};
+function safe(fn){return (...args)=>{try{return fn(...args);}catch(e){return undefined;}};}
+return {init:safe(init),recover:safe(recover),play:safe(play),get status(){return ctx?ctx.state:'idle';},haptic:safe(haptic),revealCue:safe(revealCue),music:safe(music),duck:safe(duck),restore:safe(restore),beginPlastic:safe(beginPlastic),plasticMove:safe(plasticMove),endPlastic:safe(endPlastic),heat:safe(heat),get ready(){return Object.keys(buffers).length===3;}};
 })();

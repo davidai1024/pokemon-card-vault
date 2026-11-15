@@ -101,3 +101,6 @@ html,body{touch-action:manipulation}button,a,summary,.mini-card,.pool-card,.card
 @media(max-width:360px){.podium-score .rank-coin-digits{font-size:21px}.podium-score .rank-coin-digits.long-number{font-size:11px}.reference-ranking .rank-row{grid-gap:3px 7px;padding:9px}.reference-ranking .rank-value .long-number{font-size:18px}.rank-mine>strong .long-number{font-size:23px}}
 
 .no-flex-gap .reference-ranking .rank-row>*+*{margin-left:0}
+
+/* Feedback must live in the dialog top layer, above its backdrop. */
+#dialog>#toast{z-index:1000;bottom:calc(22px + var(--safe-area-inset-bottom,0px));font-size:12px;max-width:calc(100% - 28px)}.dialog-header button,.screen-heading button,.back-open{min-width:40px;min-height:40px}.screen-detail .screen-heading{position:sticky;top:0;z-index:60;background:#fffdfa}.screen-detail .screen-heading h2{font-size:17px}.screen-detail .detail-card-area{padding-top:5px}.screen-detail .turn-card{min-height:38px;font-size:12px}

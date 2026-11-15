@@ -1,7 +1,8 @@
 window.VaultPoster=(()=>{
 'use strict';
 const loads=new Map();
-function image(src){if(!loads.has(src))loads.set(src,new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>{loads.delete(src);reject(Error('海报素材加载失败'));};im.src=src;}));return loads.get(src);}
+function image(src){if(!loads.has(src))loads.set(src,new Promise((resolve,reject)=>{const im=new Image();let done=false;const finish=error=>{if(done)return;done=true;clearTimeout(timer);if(error){loads.delete(src);console.warn('海报素材加载失败',src);reject(Error('海报素材加载失败，请重试'));}else resolve(im);};const timer=setTimeout(()=>finish(true),12000);im.onload=()=>finish(false);im.onerror=()=>finish(true);im.src=src;}));return loads.get(src);}
+
 async function draw(r,meta){
  const cards=(r.cards||[]).slice().sort((a,b)=>b.value-a.value).slice(0,3);if(!cards.length)throw Error('卡包尚未揭晓');
  const art=await Promise.all(cards.map(c=>image(meta.image(c))));

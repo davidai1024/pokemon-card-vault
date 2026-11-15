@@ -1,8 +1,8 @@
 # 宝可梦：抽卡暴富
 
-可离线运行的 H5 拆包与收藏小游戏，支持浏览器试玩和小红书小工具容器。当前代码版本 **v29**。
+可离线运行的 H5 拆包与收藏小游戏，支持浏览器试玩和小红书小工具容器。当前代码版本 **v30**。
 
-[下载 v29 小红书代码包](https://github.com/davidai1024/pokemon-card-vault/releases/tag/v0.29.0)
+[下载 v30 小红书代码包](https://github.com/davidai1024/pokemon-card-vault/releases/tag/v0.30.0)
 
 ## 玩法
 
@@ -44,7 +44,7 @@ npm test
 npm run package
 ```
 
-测试覆盖概率、保底边界、存档迁移、结算后继续拆包、存档失败回滚、海报数据与容器接口模拟。ZIP 位于 `releases/kanto-vault-v29.zip`，入口 `index.html` 在根目录，包体不超过 10 MiB。
+测试覆盖概率、保底边界、存档迁移、结算后继续拆包、存档失败回滚、海报数据与容器接口模拟。ZIP 位于 `releases/kanto-vault-v30.zip`，入口 `index.html` 在根目录，包体不超过 10 MiB。
 
 ## 小红书容器
 
@@ -64,4 +64,4 @@ Pokémon 名称、角色、卡牌插画与商标归各自权利人所有。本�
 
 已完成自动化逻辑测试、静态产物检查和本地手机尺寸界面检查。创服平台模拟器、Android 和 iOS 真机仍需用实际上传产物复验；Chrome 61 实机兼容性与真机性能尚未实测。
 
-代码版本 v29 与创服平台审核版本号分别管理。
+代码版本 v30 与创服平台审核版本号分别管理。

@@ -1,5 +1,6 @@
 import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
 const root='dist/',ctx=vm.createContext({console,Date,Math});ctx.window=ctx;for(const n of ['tcg-data.js','simplified-data.js','chinese-data.js','market-data.js','engine.js','reveal.js'])vm.runInContext(fs.readFileSync('.cache/compiled/'+n,'utf8'),ctx);
+for(const art of Object.values(ctx.TCG_SIMPLIFIED))assert(!/[?#]/.test(art.image),'Offline card path must match a ZIP entry: '+art.image);
 for(const set of ctx.Vault.SETS)for(const c of set.cards)assert(fs.existsSync(root+ctx.TCG_SIMPLIFIED[c.id].image.split('#')[0].split('?')[0]),c.id);
 for(const zh of Object.values(ctx.TCG_CHINESE))assert(fs.existsSync(root+zh.image.split('#')[0].split('?')[0]),zh.image);
 const html=fs.readFileSync(root+'index.html','utf8');for(const m of html.matchAll(/(?:src|href)="([^"?]+)(?:\?[^\"]*)?"/g))if(m[1]!=='#')assert(fs.existsSync(root+m[1]),m[1]);assert.equal((html.match(/<script /g)||[]).length,1);assert(html.includes('game.js'));const bundle=fs.readFileSync(root+'game.js','utf8');assert(bundle.indexOf('VaultStore=')<bundle.indexOf('VaultPlatform='));assert(!html.includes('qa-native'));
