@@ -1,0 +1,31 @@
+{
+  "retrieved": "2026-11-14",
+  "card_data": "https://api.tcgdex.net/v2/en",
+  "card_scans": "https://assets.tcgdex.net/en",
+  "fallback_scans": "https://images.pokemontcg.io",
+  "pack_151_front": "https://nostalgictoys.co.uk/cdn/shop/files/PokemonTCGScarlet_Violet-151BoosterPack.png?v=1751118853&width=1500",
+  "pack_151_back": "https://zatu.com/cdn/shop/files/TCG_11.png?v=1768912127&width=500",
+  "pack_base_front": "https://tcgtower.com/cdn/shop/files/base-set-long-crimp-bp.png?v=1714522971&width=2048",
+  "pack_base_back": "https://i.ebayimg.com/images/g/-WAAAOSwVjZmW6A1/s-l1600.jpg",
+  "card_back": "https://nostalgiabox.co.nz/cdn/shop/files/GardevoirEX96_100B.png?v=1690101314&width=1946",
+  "probability_151": {
+    "source": "https://infinite-api.tcgplayer.com/content/article/b237df74-fbb0-40d0-9e13-d69ee6e804d9",
+    "sample": ">1500 packs",
+    "published": "2023-09-22",
+    "rates": {
+      "Double rare": 0.1328,
+      "Ultra Rare": 0.0644,
+      "Illustration rare": 0.085,
+      "Special illustration rare": 0.0311,
+      "Hyper rare": 0.0194,
+      "Foil Energy": 0.2483
+    }
+  },
+  "probability_base": {
+    "kind": "community model, not measured official odds",
+    "holo": 0.3333333333333333,
+    "source": "https://freeripclub.com/sets/pokemon/base1"
+  },
+  "pack_jungle": "https://product-images.tcgplayer.com/fit-in/600x600/138129.jpg",
+  "pack_fossil": "https://cdn.shopify.com/s/files/1/0709/1686/6338/files/fossil-unlimited-bp.png?v=1685313398"
+}

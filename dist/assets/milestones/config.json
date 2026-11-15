@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "status": "implemented",
+  "scope": "kanto",
+  "count": 18,
+  "rules": "historical acquisitions; deduplicate species or print+finish; require achievable pool",
+  "achievements": [
+    {
+      "id": "first_pack",
+      "name": "拆包初体验",
+      "target": 1,
+      "condition": "完整结算首包，入库成功后触发",
+      "rewards": {
+        "badge": "M01-first-pack",
+        "title": "真新镇出发"
+      },
+      "asset": "M01-first-pack"
+    },
+    {
+      "id": "dex_10",
+      "name": "图鉴起步",
+      "target": 10,
+      "condition": "历史获得10种不同宝可梦",
+      "rewards": {
+        "badge": "M02-pokedex",
+        "title": "初收藏家"
+      },
+      "asset": "M02-pokedex"
+    },
+    {
+      "id": "dex_30",
+      "name": "图鉴收藏家",
+      "target": 30,
+      "condition": "历史获得30种不同宝可梦",
+      "rewards": {
+        "badge": "M02-pokedex",
+        "title": "图鉴收藏家"
+      },
+      "asset": "M02-pokedex"
+    },
+    {
+      "id": "dex_60",
+      "name": "关都探索家",
+      "target": 60,
+      "condition": "历史获得60种不同宝可梦",
+      "rewards": {
+        "badge": "M02-pokedex",
+        "title": "关都探索家"
+      },
+      "asset": "M02-pokedex"
+    },
+    {
+      "id": "dex_100",
+      "name": "百种相遇",
+      "target": 100,
+      "condition": "历史获得100种不同宝可梦",
+      "rewards": {
+        "badge": "M02-pokedex",
+        "title": "百种相遇"
+      },
+      "asset": "M02-pokedex"
+    },
+    {
+      "id": "dex_151",
+      "name": "关都全图鉴",
+      "target": 151,
+      "condition": "历史获得关都151种宝可梦",
+      "rewards": {
+        "badge": "M02-pokedex",
+        "title": "关都收藏大师"
+      },
+      "asset": "M02-pokedex"
+    },
+    {
+      "id": "starter_trio",
+      "name": "关都御三家",
+      "target": 3,
+      "condition": "妙蛙种子、小火龙、杰尼龟各历史获得至少1张",
+      "rewards": {
+        "badge": "M03-starters",
+        "title": "真新镇伙伴"
+      },
+      "asset": "M03-starters"
+    },
+    {
+      "id": "evo_1",
+      "name": "进化的足迹",
+      "target": 1,
+      "condition": "集齐1条配置中的完整三阶段进化链",
+      "rewards": {
+        "badge": "M04-evolution",
+        "title": "进化观察员"
+      },
+      "asset": "M04-evolution"
+    },
+    {
+      "id": "evo_3",
+      "name": "进化研究员",
+      "target": 3,
+      "condition": "集齐3条不同完整三阶段进化链",
+      "rewards": {
+        "badge": "M04-evolution",
+        "title": "进化研究员"
+      },
+      "asset": "M04-evolution"
+    },
+    {
+      "id": "evo_10",
+      "name": "进化档案家",
+      "target": 10,
+      "condition": "集齐10条不同完整三阶段进化链",
+      "rewards": {
+        "badge": "M04-evolution",
+        "title": "进化档案家"
+      },
+      "asset": "M04-evolution"
+    },
+    {
+      "id": "types_3",
+      "name": "属性初识",
+      "target": 3,
+      "condition": "历史获得3种卡牌属性的宝可梦卡",
+      "rewards": {
+        "badge": "M05-elements",
+        "title": "属性初识"
+      },
+      "asset": "M05-elements"
+    },
+    {
+      "id": "types_6",
+      "name": "属性探索家",
+      "target": 6,
+      "condition": "历史获得6种卡牌属性的宝可梦卡",
+      "rewards": {
+        "badge": "M05-elements",
+        "title": "属性探索家"
+      },
+      "asset": "M05-elements"
+    },
+    {
+      "id": "types_9",
+      "name": "属性博物馆",
+      "target": 9,
+      "condition": "历史获得9种卡牌属性的宝可梦卡；卡池支持后开放",
+      "rewards": {
+        "badge": "M05-elements",
+        "title": "属性博物馆"
+      },
+      "asset": "M05-elements"
+    },
+    {
+      "id": "foil_1",
+      "name": "第一束闪光",
+      "target": 1,
+      "condition": "历史获得1种闪卡版本",
+      "rewards": {
+        "badge": "M06-foil",
+        "title": "发现闪光"
+      },
+      "asset": "M06-foil"
+    },
+    {
+      "id": "foil_10",
+      "name": "闪光收藏家",
+      "target": 10,
+      "condition": "历史获得10种不同闪卡版本",
+      "rewards": {
+        "badge": "M06-foil",
+        "title": "闪光收藏家"
+      },
+      "asset": "M06-foil"
+    },
+    {
+      "id": "foil_30",
+      "name": "闪光陈列室",
+      "target": 30,
+      "condition": "历史获得30种不同闪卡版本",
+      "rewards": {
+        "badge": "M06-foil",
+        "title": "闪光陈列室"
+      },
+      "asset": "M06-foil"
+    },
+    {
+      "id": "first_sar",
+      "name": "初获 SIR",
+      "target": 1,
+      "condition": "历史首次获得SIR（特别插画稀有）卡牌",
+      "rewards": {
+        "badge": "M07-sar",
+        "title": "特别相遇"
+      },
+      "asset": "M07-sar"
+    },
+    {
+      "id": "bird_trio",
+      "name": "传说的回响",
+      "target": 3,
+      "condition": "急冻鸟、闪电鸟、火焰鸟各历史获得至少1张",
+      "rewards": {
+        "badge": "M08-legendary-birds",
+        "title": "传说见证者"
+      },
+      "asset": "M08-legendary-birds"
+    }
+  ],
+  "availability_note": "当前四个卡池开放18/18项，SIR节点依据Special illustration rare识别。旧节点ID保留以兼容历史徽章。",
+  "runtime_assets": {
+    "M02-pokedex": "M02-pokedex.webp",
+    "M05-elements": "M05-elements.webp",
+    "M07-sar": "M07-sar.webp",
+    "M06-foil": "M06-foil.webp",
+    "M08-legendary-birds": "M08-legendary-birds.svg",
+    "M04-evolution": "M04-evolution.webp",
+    "M03-starters": "M03-starters.svg",
+    "M01-first-pack": "M01-first-pack.webp"
+  },
+  "missing_assets_resolved": "M03与M08以已有独立角色插画和矢量珐琅框组合完成，不宣称为新生成PNG。"
+}

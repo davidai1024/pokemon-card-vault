@@ -1,0 +1,25 @@
+{
+  "license": "CC0 1.0",
+  "recordings": [
+    {
+      "file": "crinkle-recorded.mp3",
+      "title": "Plastic bag crunched",
+      "author": "TuneSeeker",
+      "source": "https://freesound.org/people/TuneSeeker/sounds/803542/"
+    },
+    {
+      "file": "rip-recorded.mp3",
+      "title": "Bag Opening",
+      "author": "Soundburst",
+      "source": "https://freesound.org/people/Soundburst/sounds/632768/"
+    },
+    {
+      "file": "foil-recorded.mp3",
+      "title": "tinfoil 05.wav",
+      "author": "Anthousai",
+      "source": "https://freesound.org/people/Anthousai/sounds/337524/"
+    }
+  ],
+  "retrieved": "2026-11-14",
+  "playback": "Public HQ previews, trimmed/enveloped as interaction grains; original recordings, no synthetic plastic fallback."
+}
