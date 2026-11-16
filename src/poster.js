@@ -35,7 +35,6 @@ async function draw(r,meta){
  round(19,958,1042,442,30,'#fffbed','#17151a',4);
  poly([[85,988],[348,988],[318,1053],[47,1055]],'#f92843','#111',4);text('本包精选',200,1018,53,'white',244,true);round(329,1001,244,40,20,'#fff9e6','#111',3);text((r.count||r.cards.length)+'张中的'+cards.length+'张',448,1022,28,'#111',213,false);
  for(let i=0;i<art.length;i++){const cx=226+i*316;if(i){x.strokeStyle='#e8c595';x.lineWidth=2;x.beginPath();x.moveTo(cx-158,1120);x.lineTo(cx-158,1368);x.stroke();}round(cx-104,1058,208,272,10,'#fff','#111',2);x.drawImage(art[i],cx-101,1061,202,266);round(cx-101,1336,202,29,15,'#fff9e5','#15151a',2);text(meta.name(cards[i]),cx,1350,26,'#101012',184,false);round(cx-91,1369,182,31,16,'#ffe559',null);x.drawImage(coin,cx-66,1368,31,31);text(fmt(cards[i].value),cx+23,1385,30,'#111',117,false);}
- poly([[302,1402],[787,1402],[771,1437],[282,1437]],'#f52542','#13131a',3);ball(337,1420,31);text(r.combo?.score?`连击 ${fmt(r.combo.score)} 分 · ${r.combo.crits} 次暴击`:'游戏金币估值 · 出售后才到账',574,1420,25,'#fff',411,false);
  for(const a of [202,224,246,794,816,838])poly([[a,1411],[a+13,1411],[a-4,1430],[a-17,1430]],'#fff',null);
  return canvas;
 }
@@ -63,7 +62,6 @@ async function collection(snapshot,meta){
  const w=176,h=246,startX=116,startY=548,gapX=48,gapY=14;
  for(let i=0;i<art.length;i++){const a=startX+(i%4)*(w+gapX),b=startY+Math.floor(i/4)*(h+gapY);x.save();x.shadowColor='#30201230';x.shadowBlur=8;x.shadowOffsetY=3;x.fillStyle='#fffdf2';x.fillRect(a-3,b-3,w+6,h+6);x.shadowColor='transparent';x.drawImage(art[i],a,b,w,h);x.restore();}
  if(!art.length){text('下一包，会遇见谁？',540,850,58,'#c2252c',800);text('拆开卡包，把喜欢一张张收齐。',540,935,30,'#8d7863',800,false);}
- text('持有数量含重复卡 · 精选 '+cards.length+' 张不同卡号 · 游戏金币估值',540,1325,17,'#8d7863',860,false);
  poly([[115,1364],[373,1359],[345,1411],[86,1415]],'#ffd42f');text('职场咸鱼',233,1387,36,'#151212',240);text('把喜欢，一张张收齐。',720,1388,44,'#151212',610);return canvas;
 }
 return {draw,collection,collectionCards};

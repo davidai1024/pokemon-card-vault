@@ -1,6 +1,6 @@
 {
   "name": "pokemon-card-vault",
-  "version": "0.31.0",
+  "version": "0.32.0",
   "private": true,
   "description": "宝可梦：抽卡暴富，离线 H5 拆包与收藏小游戏",
   "scripts": {
