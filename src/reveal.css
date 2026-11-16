@@ -122,3 +122,32 @@ button:focus,button:focus-visible,a:focus,a:focus-visible{outline:none}.keyboard
 /* The rarity badge is the only text under the revealed card. */
 .reveal-v4 .reveal-meta{height:32px;bottom:174px}
 @media(max-height:740px){.reveal-v4 .reveal-meta{height:32px;bottom:145px}}
+/* v34: one card, one amount, four nonverbal reveal signatures. */
+.reveal-v4 .reveal-effects{inset:auto;position:absolute;overflow:visible;z-index:6;pointer-events:none;isolation:isolate;border-radius:12px;--accent:#83a7bc;--burst-time:600ms}
+.reveal-effects>div,.reveal-effects>svg{position:absolute;pointer-events:none}
+.reveal-effects .reveal-halo{inset:-18%;opacity:0;background:radial-gradient(ellipse,transparent 44%,var(--accent) 62%,transparent 72%);transform:scale(.85)}
+.reveal-effects .reveal-iris{inset:-30%;opacity:0;background:repeating-conic-gradient(from 10deg,transparent 0deg 18deg,#ffc85188 19deg 21deg,transparent 24deg 45deg);border-radius:50%}
+.reveal-effects .reveal-sweep{inset:-4%;border:2px solid var(--accent);border-radius:15px;opacity:0;box-shadow:0 0 20px var(--accent),inset 0 0 9px var(--accent)}
+.reveal-effects .reveal-ring{left:50%;top:50%;width:110%;height:76%;border:3px solid var(--accent);border-radius:50%;opacity:0;transform:translate(-50%,-50%) scale(.4);box-shadow:0 0 12px var(--accent)}
+.reveal-effects .reveal-bolts{inset:-12%;width:124%;height:124%;fill:none;stroke:#fff1a3;stroke-width:5;stroke-linejoin:bevel;stroke-dasharray:500;stroke-dashoffset:500;opacity:0;filter:drop-shadow(0 0 5px #ffa900)}
+.reveal-effects .reveal-sparks{inset:0}.reveal-sparks i{position:absolute;left:50%;top:50%;width:6px;height:15px;background:var(--accent);opacity:0;box-shadow:0 0 7px var(--accent)}
+.reveal-effects.tier-small .reveal-sparks,.reveal-effects.tier-small .reveal-ring,.reveal-effects.tier-small .reveal-bolts,.reveal-effects.tier-small .reveal-iris{display:none}
+.reveal-effects.tier-medium{--accent:#58d5ff}.reveal-effects.tier-medium .reveal-iris,.reveal-effects.tier-medium .reveal-bolts,.reveal-effects.tier-medium .ring-second{display:none}
+.reveal-effects.tier-high{--accent:#ffd23e}.reveal-effects.tier-high .reveal-iris,.reveal-effects.tier-high .ring-second{display:none}
+.reveal-effects.tier-epic{--accent:#f49cff}.reveal-effects.tier-epic .reveal-halo{background:conic-gradient(from 30deg,transparent,#72dcff66,transparent,#ff8ee977,transparent,#ffe66e88,transparent);inset:-22%;border-radius:50%}
+.reveal-effects.tier-epic .reveal-sweep{border-color:#fff1c6;box-shadow:0 0 20px #f19bff,inset 0 0 12px #72dcff}.tier-epic .reveal-sparks i{width:14px;height:14px;background:#fff5c6;clip-path:polygon(50% 0,62% 37%,100% 50%,62% 62%,50% 100%,37% 62%,0 50%,37% 37%)}
+.reveal-v4[data-fx-phase=charge] .tier-high .reveal-sweep,.reveal-v4[data-fx-phase=charge] .tier-epic .reveal-sweep{animation:reveal-edge-charge .35s ease-out both}
+.reveal-effects.has-burst .reveal-sweep{animation:reveal-edge-out var(--burst-time) ease-out both}.reveal-effects.has-burst .reveal-ring{animation:reveal-ring-out var(--burst-time) ease-out both}.reveal-effects.has-burst .ring-second{animation-delay:.09s;border-color:#ffe57f}
+.reveal-effects.has-burst .reveal-halo{animation:reveal-halo-out var(--burst-time) ease-out both}.reveal-effects.has-burst .reveal-iris{animation:reveal-crown var(--burst-time) ease-out both}.reveal-effects.has-burst .reveal-bolts{animation:reveal-bolt .5s ease-out both}.reveal-effects.has-burst .reveal-sparks i{animation:reveal-shard var(--burst-time) cubic-bezier(.1,.7,.2,1) both;animation-delay:calc(var(--i)*8ms)}
+@keyframes reveal-edge-charge{from{opacity:0;transform:scale(1.06)}to{opacity:.65;transform:scale(1)}}
+@keyframes reveal-edge-out{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.16)}}
+@keyframes reveal-ring-out{0%{opacity:.8;transform:translate(-50%,-50%) scale(.55) rotate(-20deg)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5) rotate(20deg)}}
+@keyframes reveal-halo-out{0%{opacity:0;transform:scale(.8) rotate(-15deg)}25%{opacity:.6}100%{opacity:0;transform:scale(1.25) rotate(30deg)}}
+@keyframes reveal-crown{0%{opacity:0;transform:scale(.65) rotate(-15deg)}20%{opacity:.75}100%{opacity:0;transform:scale(1.3) rotate(25deg)}}
+@keyframes reveal-bolt{0%{opacity:0;stroke-dashoffset:500}25%{opacity:1}70%{opacity:.8;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:0}}
+@keyframes reveal-shard{0%{opacity:0;transform:translate(-50%,-50%) scale(.1)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--turn)) scale(.3)}}
+.collection-progress{display:flex;align-items:center;margin:8px 0 14px;color:#736b68;font-size:12px;gap:10px}.collection-progress>span{min-width:24px}.collection-progress>progress{flex:1;min-width:30px;height:5px;border:0;border-radius:9px;overflow:hidden;background:#ece7df;appearance:none}.collection-progress progress::-webkit-progress-bar{background:#ece7df}.collection-progress progress::-webkit-progress-value{background:#ef3346;border-radius:9px}.collection-progress progress::-moz-progress-bar{background:#ef3346;border-radius:9px}.collection-progress>b{font-size:11px;white-space:nowrap}
+.welcome-boost{display:flex;align-items:center;justify-content:center;gap:16px;font-size:20px;font-weight:850;color:#d31c30}.welcome-boost>b{font-size:13px;color:#746659}.shop-welcome-boost{display:block;text-align:center;font-size:12px;font-weight:750;color:#b91b32;margin:0 0 7px}
+@media(prefers-reduced-motion:reduce){.reveal-effects{display:none}}
+/* The old cinematic hid the amount until the end; v34 reveals it in place at impact. */
+.reveal-v4[data-fx-phase=impact] .reveal-value.is-visible{visibility:visible;opacity:1}
