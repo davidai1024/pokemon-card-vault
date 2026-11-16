@@ -118,3 +118,7 @@ button:focus,button:focus-visible,a:focus,a:focus-visible{outline:none}.keyboard
 /* Card-first presentation after removing the extra scoring panel. */
 .reveal-v4 .reveal-value{top:calc(214px + var(--container-top,0px));height:48px}.reveal-v4 .card-stage{top:calc(275px + var(--container-top,0px));bottom:221px}.reveal-v4 .fx-impact-value{top:calc(145px + var(--container-top,0px))}.pool-count{font-size:14px;color:#756d68}.rank-rule-summary{justify-content:flex-end}
 @media(max-height:740px){.reveal-v4 .card-stage{top:calc(265px + var(--container-top,0px));bottom:190px}.reveal-v4 .reveal-value{top:calc(214px + var(--container-top,0px))}}
+
+/* The rarity badge is the only text under the revealed card. */
+.reveal-v4 .reveal-meta{height:32px;bottom:174px}
+@media(max-height:740px){.reveal-v4 .reveal-meta{height:32px;bottom:145px}}
