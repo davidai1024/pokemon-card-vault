@@ -1,7 +1,7 @@
 window.VaultPoster=(()=>{
 'use strict';
 const loads=new Map();
-function image(src){if(!loads.has(src))loads.set(src,new Promise((resolve,reject)=>{const im=new Image();let done=false;const finish=error=>{if(done)return;done=true;clearTimeout(timer);if(error){loads.delete(src);console.warn('海报素材加载失败',src);reject(Error('海报素材加载失败，请重试'));}else resolve(im);};const timer=setTimeout(()=>finish(true),12000);im.onload=()=>finish(false);im.onerror=()=>finish(true);im.src=src;}));return loads.get(src);}
+function image(src){if(!loads.has(src))loads.set(src,new Promise((resolve,reject)=>{const im=document.createElement('img');im.setAttribute?.('aria-hidden','true');if(im.dataset)im.dataset.posterAsset='1';if(im.style)im.style.cssText='position:absolute;width:1px;height:1px;opacity:0;pointer-events:none';let done=false;const finish=error=>{if(done)return;done=true;clearTimeout(timer);if(im.parentNode)im.parentNode.removeChild(im);if(error){loads.delete(src);console.warn('海报素材加载失败',src);reject(Error('海报素材加载失败，请重试'));}else resolve(im);};const timer=setTimeout(()=>finish(true),12000);im.onload=()=>finish(false);im.onerror=()=>finish(true);if(document.body)document.body.appendChild(im);im.src=src;}));return loads.get(src);}
 
 async function draw(r,meta){
  const cards=(r.cards||[]).slice().sort((a,b)=>b.value-a.value).slice(0,3);if(!cards.length)throw Error('卡包尚未揭晓');
@@ -35,7 +35,7 @@ async function draw(r,meta){
  round(19,958,1042,442,30,'#fffbed','#17151a',4);
  poly([[85,988],[348,988],[318,1053],[47,1055]],'#f92843','#111',4);text('本包精选',200,1018,53,'white',244,true);round(329,1001,244,40,20,'#fff9e6','#111',3);text((r.count||r.cards.length)+'张中的'+cards.length+'张',448,1022,28,'#111',213,false);
  for(let i=0;i<art.length;i++){const cx=226+i*316;if(i){x.strokeStyle='#e8c595';x.lineWidth=2;x.beginPath();x.moveTo(cx-158,1120);x.lineTo(cx-158,1368);x.stroke();}round(cx-104,1058,208,272,10,'#fff','#111',2);x.drawImage(art[i],cx-101,1061,202,266);round(cx-101,1336,202,29,15,'#fff9e5','#15151a',2);text(meta.name(cards[i]),cx,1350,26,'#101012',184,false);round(cx-91,1369,182,31,16,'#ffe559',null);x.drawImage(coin,cx-66,1368,31,31);text(fmt(cards[i].value),cx+23,1385,30,'#111',117,false);}
- poly([[302,1402],[787,1402],[771,1437],[282,1437]],'#f52542','#13131a',3);ball(337,1420,31);text('游戏金币估值 · 出售后才到账',574,1420,25,'#fff',411,false);
+ poly([[302,1402],[787,1402],[771,1437],[282,1437]],'#f52542','#13131a',3);ball(337,1420,31);text(r.combo?.score?`连击 ${fmt(r.combo.score)} 分 · ${r.combo.crits} 次暴击`:'游戏金币估值 · 出售后才到账',574,1420,25,'#fff',411,false);
  for(const a of [202,224,246,794,816,838])poly([[a,1411],[a+13,1411],[a-4,1430],[a-17,1430]],'#fff',null);
  return canvas;
 }
